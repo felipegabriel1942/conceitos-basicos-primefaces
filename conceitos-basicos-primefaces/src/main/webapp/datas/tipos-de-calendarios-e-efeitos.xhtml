@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Data com ajax</title>
+
+	<script>
+		PrimeFaces.locales['pt_BR'] = {
+			closeText : 'Fechar',
+			prevText : 'Anterior',
+			nextText : 'Próximo',
+			currentText : 'Começo',
+			monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+					'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+					'Novembro', 'Dezembro' ],
+			monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+					'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+			dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+					'Sexta', 'Sábado' ],
+			dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+			dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+			weekHeader : 'Semana',
+			firstDay : 1,
+			isRTL : false,
+			showMonthAfterYear : false,
+			yearSuffix : '',
+			timeOnlyTitle : 'Só Horas',
+			timeText : 'Tempo',
+			hourText : 'Hora',
+			minuteText : 'Minuto',
+			secondText : 'Segundo',
+			currentText : 'Data de Hoje',
+			ampm : false,
+			month : 'Mês',
+			week : 'Semana',
+			day : 'Dia',
+			allDayText : 'Todo Dia'
+		};
+	</script>
+
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="growl" showDetail="true" />
+
+		<h:panelGrid columns="2">
+			<h:outputText value="Calendario com botões" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" showButtonPanel="true">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com navegação" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" showButtonPanel="true" display="inline"
+				navigator="true">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com várias páginas" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" pages="2">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com Fade" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" effect="fadeIn">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com Slide horizontal" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" effect="slide">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com Slide vertical" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" effect="slideDown">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com efeito explode" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" effect="explode">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com efeito fold" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" effect="fold" effectDuration="slow">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com efeito Drop" />
+			<p:calendar pattern="dd/MM/yyyy" value="#{dataBean.data}"
+				locale="pt_BR" effect="drop" effectDuration="slow">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario padrão com data e hora" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm" value="#{dataBean.data}"
+				locale="pt_BR" effect="drop" effectDuration="slow">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario apenas com horario" />
+			<p:calendar pattern="HH:mm" value="#{dataBean.data}" timeOnly="true"
+				locale="pt_BR" effect="drop" effectDuration="slow">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com data hora (AM/PM)" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm a" value="#{dataBean.data}"
+				locale="pt_BR" effect="drop" effectDuration="slow">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario com data hora e segundos" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm:ss" value="#{dataBean.data}"
+				locale="pt_BR" effect="drop" effectDuration="slow" stepHour="2">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+			<h:outputText value="Calendario comercial" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm:ss" value="#{dataBean.data}"
+				locale="pt_BR" effect="drop" effectDuration="slow" minHour="8" maxHour="18">
+
+				<p:ajax event="dateSelect"
+					listener="#{dataBean.mostrarMsgMudancaData}" update="growl" />
+			</p:calendar>
+
+
+
+		</h:panelGrid>
+
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:panel id="panel" header="Cadastro de Funcionário">
+		<p:messages id="msgResultado"/>
+			<h:panelGrid columns="3">
+				<h:outputLabel value="Nome: " for="nome" />
+				<p:inputText id="nome" value="#{funcionarioBean.nome}" required="true" requiredMessage="O nome é obrigatorio"/>
+				<p:message for="nome" id="msgValidacaoNome"/>
+				
+				<h:outputLabel value="Função: " for="funcao" />
+				<p:inputText id="funcao" value="#{funcionarioBean.funcao}" required="true" requiredMessage="A função é obrigatoria"/>
+				<p:message for="funcao" id="msgValidacaoFuncao"/>
+
+				<p:commandButton id="btnSalvar" value="Salvar" update="panel"
+					actionListener="#{funcionarioBean.salvarFuncionario}" />
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
