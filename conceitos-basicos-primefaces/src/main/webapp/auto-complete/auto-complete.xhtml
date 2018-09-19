@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title></title>
+
+</h:head>
+<h:body>
+
+	<h:form id="form">
+		<p:panel header="AutoComplete Simples" toggleable="true">
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientes" value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" />
+
+				<p:commandButton value="Imprimir" update="displayCliente" />
+
+				<p:panelGrid id="displayCliente" columns="2">
+					<h:outputLabel value="Cliente" />
+					<h:outputText value="#{autoCompleteBean.cliente}" />
+				</p:panelGrid>
+			</h:panelGrid>
+
+		</p:panel>
+
+		<p:panel header="AutoComplete Aumentando tempo da Consulta"
+			toggleable="true">
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientesDelay"
+					value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" queryDelay="1000" />
+
+				<p:commandButton value="Imprimir" update="displayClienteDelay" />
+
+				<p:panelGrid id="displayClienteDelay" columns="2">
+					<h:outputLabel value="Cliente" />
+					<h:outputText value="#{autoCompleteBean.cliente}" />
+				</p:panelGrid>
+			</h:panelGrid>
+
+		</p:panel>
+
+		<p:panel header="AutoComplete com DropDown" toggleable="true">
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientesDrop"
+					value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" queryDelay="1000"
+					dropdown="true" forceSelection="true" />
+
+				<p:commandButton value="Imprimir" update="displayClienteDrop" />
+
+				<p:panelGrid id="displayClienteDrop" columns="2">
+					<h:outputLabel value="Cliente" />
+					<h:outputText value="#{autoCompleteBean.cliente}" />
+				</p:panelGrid>
+			</h:panelGrid>
+
+		</p:panel>
+
+	</h:form>
+
+</h:body>
+</html>

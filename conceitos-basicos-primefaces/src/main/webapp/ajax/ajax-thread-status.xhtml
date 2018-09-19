@@ -10,6 +10,8 @@
 
 </h:head>
 <h:body>
+	<!-- Ajax status simples -->
+	<!--  
 	<p:ajaxStatus style="width:64px;height:64px;" id="ajaxStatusPanel">
 		<f:facet name="start">
 			<h:graphicImage library="imagens" name="processando.gif"
@@ -20,6 +22,19 @@
 			<h:outputText value="" />
 		</f:facet>
 	</p:ajaxStatus>
+	-->
+
+	<!-- Ajax status customizado -->
+	<p:ajaxStatus onstart="PF('statusDialog').show()"
+		onsuccess="PF('statusDialog').hide()" />
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status"
+		draggable="false" closable="false">
+		<h:graphicImage library="imagens" name="processando.gif"
+			style="width:64px;height:64px;" />
+
+	</p:dialog>
+
+
 	<h:form id="form">
 		<p:panel id="panel" header="Cadastro de Funcionário">
 			<p:messages id="msgResultado" />
