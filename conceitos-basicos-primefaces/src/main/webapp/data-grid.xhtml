@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Data Grid</title>
+
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:dataGrid value="#{dataGridBean.produtos}" var="produto" columns="2"
+			rows="3" paginator="true"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropDown}"
+			rowsPerPageTemplate="2,4,6">
+			<p:panel header="#{produto.nome}">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Valor do Produto:" />
+					<h:outputText value="#{produto.valor}" />
+
+					<h:outputLabel value="Total vendas:" />
+					<h:outputText value="#{produto.totalVendas}" />
+				</h:panelGrid>
+			</p:panel>
+		</p:dataGrid>
+	</h:form>
+</h:body>
+</html>
